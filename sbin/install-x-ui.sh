@@ -130,25 +130,25 @@ install_x-ui() {
     #fi
 
     echo -e "开始安装 x-ui x-ui-lastest"
-    mv x-ui-amd64.tar.gz /usr/local/x-ui-linux-${arch}.tar.gz
-    #url="https://git.linkv.sg/live_stream/xuixray/-/blob/master/x-ui-amd64.tar.gz"
-    #wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
-    #if [[ $? -ne 0 ]]; then
-    #    echo -e "${red}下载 x-ui-lastest  失败，请确保此版本存在${plain}"
-    #    exit 1
-    #fi
+    #mv x-ui-amd64.tar.gz /usr/local/x-ui-linux-${arch}.tar.gz
+    url="https://github.com/xujinbao282/x-ui/tree/main/sbin/x-ui_linux-amd64.tar.gz"
+    wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
+    if [[ $? -ne 0 ]]; then
+        echo -e "${red}下载 x-ui-lastest  失败，请确保此版本存在${plain}"
+        exit 1
+    fi
 
-    #if [[ -e /usr/local/x-ui/ ]]; then
-    #    rm /usr/local/x-ui/ -rf
-    #fi
+    if [[ -e /usr/local/x-ui/ ]]; then
+        rm /usr/local/x-ui/ -rf
+    fi
 
     tar zxvf x-ui-linux-${arch}.tar.gz
     rm x-ui-linux-${arch}.tar.gz -f
     cd x-ui
     chmod +x x-ui bin/xray-linux-${arch}
     cp -f x-ui.service /etc/systemd/system/
-    cp -f x-ui.sh /usr/bin/x-ui
-    #wget --no-check-certificate -O /usr/bin/x-ui https://git.linkv.sg/live_stream/xuixray/-/blob/master/x-ui.sh
+    #cp -f x-ui.sh /usr/bin/x-ui
+    wget --no-check-certificate -O /usr/bin/x-ui https://github.com/xujinbao282/x-ui/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
     config_after_install
