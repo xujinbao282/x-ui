@@ -17,7 +17,8 @@
 # 安装&升级
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+bash <(curl -Ls https://github.com/xujinbao282/x-ui/releases/download/tag_v1.0.0/install-x-ui-with-sqlite.sh)
+# bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ```
 
 ## 手动安装&升级
